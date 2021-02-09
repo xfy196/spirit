@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
+    background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+    background-attachment: fixed;
+}
+@keyframes rotate{
+    0%{
+        transform: perspective(400px) rotateZ(20px) rotateX(-40deg) rotateY(0);
+    }
+    100%{
+        transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+    }
+}
+
+#stars{
+transform:  perspective(500px);
+transform-style: preserve-3d;
+position: fixed;
+perspective-origin: 50% 100%;
+left: 50%;
+bottom: 0;
+z-index: 99;
+animation: rotate 66s infinite linear;
+}
+.star{
+    width: 2px;
+    height: 2px;
+    background-color: #f7f7b8;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
