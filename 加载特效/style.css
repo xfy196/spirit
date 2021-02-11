@@ -1,0 +1,27 @@
+.cssload-container{
+    margin: 49px auto;
+    display: block;
+    width: 98px;
+}
+.cssload-loading{
+    font-size: 0;
+}
+.cssload-loading i{
+    width: 49px;
+	height: 49px;
+	display: inline-block;
+	background: rgb(255,89,84);
+	border-radius: 50%;
+}
+.cssload-loading i:nth-child(1){
+    animation: cssload-loading-ani1 1.15s ease-in-out infinite;
+}
+.cssload-loading i:nth-child(2){
+    animation: cssload-loading-ani1 1.15s ease-in-out 0.58s infinite;
+    background: rgb(0,168,206);
+}
+@keyframes cssload-loading-ani1{
+    70%{
+        transform: scale(0.5);
+    }
+}
