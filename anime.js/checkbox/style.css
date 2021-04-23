@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    background: #151d29;
+    background: #d6e7f7;
+    color: hsl(0, 0%, 98%);
+    /* center the label in the viewport */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.75s ease-in-out;
+  }
+  
+  /* absolute position the input element on top of the accompanying svg element */
+  label {
+    position: relative;
+  }
+  label input {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  label svg {
+    width: 350px;
+    height: auto;
+    display: block;
+  }
+  /* include transitions for the elements modified as the input is checked */
+  label input + svg .light {
+    transition: opacity 0.75s cubic-bezier(0.68, 0.25, 0.265, 1);
+  }
+  label input + svg .translate,
+  label input + svg .rotate,
+  label input + svg .background,
+  label input + svg .astronaut,
+  label input + svg .surfer {
+    transition: transform 0.75s cubic-bezier(0.68, 0.25, 0.265, 1);
+  }
+  /* make the .light element fully transparent to have the .dark variant see through */
+  label input:checked + svg .light {
+    opacity: 0;
+  }
+  /* translate the sun/moon toward the right (by default it is pushed back with a negative translation) */
+  label input:checked + svg .translate {
+    transform: translateX(0px);
+  }
+  /* rotate the moon (by default it is rotated counter-clockwise) */
+  label input:checked + svg .rotate {
+    transform: rotate(0deg);
+  }
+  /* translate the scale the backgrounds to 0
+  this is rather neat, so meant an extra comment
+  - the light background is positioned with two groups, one pushing it below the graphic, one back up; by removing the translation of this last group the background "returns" below the toggle
+  - the dark background is positioned above and with a smaller vertical scale; by removing the translation it is placed in full view and by increasing its scale it's as if the stars would tumble down with different rates
+  */
+  label input:checked + svg .background {
+    transform: translate(0px) scale(1);
+  }
+  
