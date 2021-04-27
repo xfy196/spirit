@@ -47,7 +47,7 @@
             thisTop.addClass('new');  //jquery   JS中添加类名巨麻烦
             thisBottom.addClass('new');
             thisBottom.find('.text').text(newnumber);//将test里面的内容改成newnumber里面的内容
-
+            
             el.find('.top').after(thisTop)  //找到top同级的thisTop盒子
             el.find('.top.new').append(thisBottom)//在同时具有.top.new类名的盒子里添加thisBottom这个盒子
             el.addClass('flipping')//给el(flipper)添加一个flipping类名
