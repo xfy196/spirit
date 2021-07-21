@@ -1,0 +1,130 @@
+body {
+    background: #999;
+    font-family: sans-serif;
+    font-weight: 300;
+    line-height: 1.61803398875em;
+  }
+  
+  .carousel {
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel-item {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.6s ease-in-out;
+    width: 100%;
+  }
+  
+  .carousel-active:checked + .carousel-item {
+    opacity: 1;
+    pointer-events: auto;
+    position: static;
+  }
+  
+  .carousel-item img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  
+  .carousel-controls {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .carousel-control {
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 28px;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+    transition: background 0.1s ease-in-out;
+    width: 50%;
+    z-index: 2;
+  }
+  
+  .carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .carousel-control.prev {
+    float: left;
+  }
+  
+  .carousel-control.next {
+    float: right;
+  }
+  
+  .carousel-caption {
+    bottom: 15%;
+    font-size: 120%;
+    left: 20%;
+    opacity: 0;
+    right: 20%;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.1s ease-out;
+    z-index: 2;
+  }
+  
+  .carousel-active:checked + .carousel-item .carousel-caption {
+    transition: opacity 0.6s ease-in;
+    opacity: 1;
+  }
+  
+  .carousel-indicators {
+    bottom: 5%;
+    left: 5%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    right: 5%;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .carousel-indicators li {
+    display: inline-block;
+  }
+  
+  .carousel-indicator {
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    font-size: 28px;
+    line-height: 1;
+    padding: 5px 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: background 0.1s ease-in-out;
+  }
+  
+  .carousel-indicator:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* If you`re needing more than 3 banners, maybe you might be using another way to represent your info... ;-) */
+  #carousel-1:checked ~ .carousel-indicators .carousel-indicator[for="carousel-1"],
+  #carousel-2:checked ~ .carousel-indicators .carousel-indicator[for="carousel-2"],
+  #carousel-3:checked ~ .carousel-indicators .carousel-indicator[for="carousel-3"] {
+    color: #007f7f;
+  }
+  
+  @media (min-width: 768px) {
+    .carousel-indicators {
+      background: transparent;
+    }
+    .carousel-control {
+      width: 5%;
+    }
+    .carousel-controls,
+    .carousel-caption,
+    .carousel-indicators {
+      position: absolute;
+    }
+  }
