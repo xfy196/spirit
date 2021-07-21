@@ -1,0 +1,49 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+.wrap {
+    display: flex;
+    width: 600px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(180deg, #020205 0%, #170f39 51%, #35247a 95%);
+}
+.planet {
+    position: absolute;
+    border: 2px solid #fff;
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+    transform: scaleY(0.5) rotateZ(45deg);
+    border-radius: 50%;
+    animation: planet-rotate 20s linear infinite;
+}
+.ball {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: yellowgreen;
+    left: calc(50% - 25px);
+    top: -25px;
+    transform: rotateZ(-45deg) scaleY(2);
+    animation: self-rotate 20s linear infinite;
+}
+@keyframes planet-rotate {
+    0% {
+        transform: rotate(45deg) scaleY(0.5) rotate(0);
+    }
+    100% {
+        transform: rotate(45deg) scaleY(0.5) rotate(360deg);
+    }
+}
+@keyframes self-rotate {
+    0% {
+        transform: rotate(0) scaleY(2) rotate(-45deg);
+    }
+    100% {
+        transform: rotate(-360deg) scaleY(2) rotate(-45deg);
+    }
+}
