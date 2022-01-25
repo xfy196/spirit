@@ -4,6 +4,11 @@ window.onload = function () {
   let animation;
   let fireArr = [];
   let fragments = [];
+  const city = document.getElementById("city")
+  window.addEventListener("resize", function(){
+    canvas.width = document.body.clientWidth
+    canvas.height = document.body.clientHeight
+  })
   init()
   // 初始化
   function init() {
@@ -90,9 +95,9 @@ window.onload = function () {
         if (
           dx === 0 ||
           dy === 0 ||
-          this.y >= 700 ||
-          this.x <= 300 ||
-          this.x >= 1700
+          this.y >= canvas.height - 300 ||
+          this.x <= 0 ||
+          this.x >= canvas.width
         ) {
           this.fragDisappear = true;
         }
@@ -106,8 +111,8 @@ window.onload = function () {
 		const b = Math.round(getRandom(0, 255));
 		const color = 'rgb(' + r + ',' + g + ',' + b + ')';
     const fire = new func(
-      960 + getRandom(-300, 300),
-      800,
+      getRandom(0, canvas.width),
+      canvas.height - getRandom(80, city.clientHeight),
       color,
       getRandom(-5, 5),
       getRandom(0, 3)
@@ -122,8 +127,8 @@ window.onload = function () {
     // 如果烟花数组有数据
     if (fireArr.length) {
       fireArr.forEach((item, index) => {
-        const marginWidthLeft = parseInt(getRandom(0, canvas.width / 5));
-        const marginWidthRight = parseInt(getRandom(1500, canvas.width));
+        const marginWidthLeft = 0
+        const marginWidthRight = canvas.width;
         const marginHeight = parseInt(getRandom(0, 300));
         if (
           item.x >= marginWidthRight ||
