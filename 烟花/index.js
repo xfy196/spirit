@@ -4,21 +4,20 @@ window.onload = function () {
   let animation;
   let fireArr = [];
   let fragments = [];
-  const city = document.getElementById("city")
-  window.addEventListener("resize", function(){
-    canvas.width = document.body.clientWidth
-    canvas.height = document.body.clientHeight
-  })
-  init()
+  window.addEventListener("resize", function () {
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
+  });
+  init();
   // 初始化
   function init() {
-    canvas.width = document.body.clientWidth
-    canvas.height = document.body.clientHeight
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
     for (let i = 0; i < 5; i++) {
       fireArr.push(createRandomFire(CreateFireObj));
     }
-    if(fireArr.length){
-      animate()
+    if (fireArr.length) {
+      animate();
     }
   }
 
@@ -38,21 +37,21 @@ window.onload = function () {
     this.offsetValueY = offsetValueY;
     this.disappear = false;
     this.boomJudge = true;
-    
+
     // 绘制
-    this.draw = function() {
-			ctx.save();
-			ctx.beginPath();
-			ctx.fillStyle = this.color;
-			ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-			ctx.fill();
-			ctx.closePath();
-			ctx.restore();
-		}
+    this.draw = function () {
+      ctx.save();
+      ctx.beginPath();
+      ctx.fillStyle = this.color;
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+      ctx.fill();
+      ctx.closePath();
+      ctx.restore();
+    };
     // 移动
     this.move = function () {
       this.x += this.vx + this.offsetValueX;
-			this.y -= this.vy + this.offsetValueY;
+      this.y -= this.vy + this.offsetValueY;
     };
     // 爆炸 产生碎片
     this.boom = function () {
@@ -63,9 +62,9 @@ window.onload = function () {
         const targetX = this.x + range * Math.cos(angel);
         const targetY = this.y + range * Math.sin(angel);
         const r = Math.round(getRandom(120, 255));
-				const g = Math.round(getRandom(120, 255));
-				const b = Math.round(getRandom(120, 255));
-				const color = 'rgb(' + r + ',' + g + ',' + b + ')';
+        const g = Math.round(getRandom(120, 255));
+        const b = Math.round(getRandom(120, 255));
+        const color = "rgb(" + r + "," + g + "," + b + ")";
         const frag = new CreateFrag(this.x, this.y, color, targetX, targetY);
         this.fragArr.push(frag);
       }
@@ -90,8 +89,8 @@ window.onload = function () {
         this.ty += 0.5;
         const dy = this.ty - this.y,
           dx = this.tx - this.x;
-        this.x = Math.abs(dx) < 0.1 ? this.tx : (this.x + dx * 0.01);
-        this.y = Math.abs(dy) < 0.1 ? this.ty : (this.y + dy * 0.01);
+        this.x = Math.abs(dx) < 0.1 ? this.tx : this.x + dx * 0.01;
+        this.y = Math.abs(dy) < 0.1 ? this.ty : this.y + dy * 0.01;
         if (
           dx === 0 ||
           dy === 0 ||
@@ -107,9 +106,9 @@ window.onload = function () {
   // 创建随机的烟花
   function createRandomFire(func) {
     const r = Math.round(getRandom(200, 255));
-		const g = Math.round(getRandom(200, 255));
-		const b = Math.round(getRandom(0, 255));
-		const color = 'rgb(' + r + ',' + g + ',' + b + ')';
+    const g = Math.round(getRandom(200, 255));
+    const b = Math.round(getRandom(0, 255));
+    const color = "rgb(" + r + "," + g + "," + b + ")";
     const fire = new func(
       getRandom(0, canvas.width),
       canvas.height - getRandom(80, city.clientHeight),
@@ -122,6 +121,7 @@ window.onload = function () {
 
   // 运动
   function animate() {
+    console.log("dasd")
     ctx.fillStyle = "rgba(0,0,0,0.05)"; //产生拖尾效果
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     // 如果烟花数组有数据
@@ -165,7 +165,7 @@ window.onload = function () {
             fragments.splice(index1, 1);
           }
           item2.draw();
-          item2.move()
+          item2.move();
         });
       });
     }
