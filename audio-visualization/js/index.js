@@ -1,7 +1,6 @@
 const audioEle = document.querySelector("audio");
 const cvs = document.querySelector("canvas");
 const ctx = cvs.getContext("2d");
-
 // 初始化
 function initCvs() {
   cvs.width = window.innerWidth * devicePixelRatio;
