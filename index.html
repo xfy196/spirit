@@ -12,10 +12,15 @@
     <link rel="stylesheet" href="./style/main.css" />
   </head>
   <body>
-    <div v-scope>
+    <div v-scope @vue:mounted="mounted">
       <ul class="show__wrap">
         <li class="show__box" v-for="(item, index) in list">
-          <iframe :key="index" :src="item.url" frameborder="0"></iframe>
+          <iframe
+            lazy="lazy"
+            :key="index"
+            :src="item.url"
+            frameborder="0"
+          ></iframe>
           <div @click="toPage(item.url)" class="title">{{item.title}}</div>
         </li>
       </ul>
@@ -24,6 +29,12 @@
   <script type="module">
     import { createApp } from "https://cdn.jsdelivr.net/npm/petite-vue/+esm";
     createApp({
+      mounted() {
+        const viewHeight = document.documentElement.clientHeight;
+        const viewWidth = document.documentElement.clientWidth;
+        const eles = document.querySelectorAll("iframe[lazy]");
+        console.log(eles);
+      },
       toPage(url) {
         location.href = url;
       },
