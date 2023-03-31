@@ -121,13 +121,12 @@ window.onload = function () {
 
   // 运动
   function animate() {
-    console.log("dasd")
     ctx.fillStyle = "rgba(0,0,0,0.05)"; //产生拖尾效果
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     // 如果烟花数组有数据
     if (fireArr.length) {
       fireArr.forEach((item, index) => {
-        const marginWidthLeft = 0
+        const marginWidthLeft = 0;
         const marginWidthRight = canvas.width;
         const marginHeight = parseInt(getRandom(0, 300));
         if (

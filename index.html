@@ -4,27 +4,149 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>小精灵</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset.css@2.0.2/reset.min.css"
+    />
+    <style>
+      html,
+      body {
+        --color1: #ffc85e;
+        --color2: #e6e36e;
+        --color3: #000d7c;
+        --color4: #004abb;
+        --color5: #a69bfd;
+      }
+      a {
+        color: var(--color4);
+        text-decoration: none;
+      }
+      a:visited {
+        color: var(--color4);
+      }
+      .show__wrap {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 6px;
+        grid-row-gap: 6px;
+        padding: 6px;
+      }
+      .show__wrap .show__box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--color3);
+        border-radius: 8px;
+        overflow: hidden;
+        padding-bottom: 8px;
+      }
+      .show__wrap .show__box .title {
+        margin-top: 12px;
+        color: var(--color4);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .show__wrap .show__box .title:hover {
+        transform: scale(1.2);
+      }
+    </style>
   </head>
   <body>
-    <a href="./babysbreath/index.html">满天星特效</a>
-    <a href="./clickmedrag/index.html">点我拖拽</a>
-    <a href="./loading/index.html">加载特效</a>
-    <a href="./anime.js/clickme/index.html">anime点我移动特效</a>
-    <a href="./anime.js/checkbox/index.html">白天夜晚切换</a>
-    <a href="./clock/index.html">时钟</a>
-    <a href="./布灵布灵按钮/index.html">布灵布灵按钮</a>
-    <a href="./流光按钮/index.html">流光按钮</a>
-    <a href="./轨道球/index.html">轨道球</a>
-    <a href="./marker序号/index.html">marker自定序号列表</a>
-    <a href="./css轮播图/index.html">css轮播图</a>
-    <a href="./css手风琴/index.html">css手风琴 </a>
-    <a href="./打字效果/index.html">打字效果</a>
-    <a href="./鞭炮倒计时/index.html">鞭炮倒计时</a>
-    <a href="./css实现文本“不定行数”截断/index.html">css实现文本不定行数截断</a>
-    <a href="./烟花/index.html">烟花</a>
-    <a href="./雪花/index.html">雪花</a>
-    <a href="./iphone-loading/index.html">苹果加载进度条</a>
-    <a href="./audio-visualization/index.html">音频可视化</a>
+    <div v-scope>
+      <ul class="show__wrap">
+        <li class="show__box" v-for="(item, index) in list">
+          <iframe :key="index" :src="item.url" frameborder="0"></iframe>
+          <div @click="toPage(item.url)" class="title">{{item.title}}</div>
+        </li>
+      </ul>
+    </div>
   </body>
+  <script type="module">
+    import { createApp } from "https://cdn.jsdelivr.net/npm/petite-vue/+esm";
+    createApp({
+      toPage(url) {
+        location.href = url;
+      },
+      list: [
+        {
+          title: "满天星特效",
+          url: "/babysbreath/index.html",
+        },
+        {
+          title: "点我拖拽",
+          url: "/clickmedrag/index.html",
+        },
+        {
+          title: "加载特效",
+          url: "/loading/index.html",
+        },
+        {
+          title: "anime点我移动特效",
+          url: "/anime.js/clickme/index.html",
+        },
+        {
+          title: "白天夜晚切换",
+          url: "/anime.js/checkbox/index.html",
+        },
+        {
+          title: "时钟",
+          url: "/clock/index.html",
+        },
+        {
+          title: "布灵布灵按钮",
+          url: "/布灵布灵按钮/index.html",
+        },
+        {
+          title: "流光按钮",
+          url: "/流光按钮/index.html",
+        },
+        {
+          title: "轨道球",
+          url: "/轨道球/index.html",
+        },
+        {
+          title: "marker自定序号列表",
+          url: "/marker序号/index.html",
+        },
+        {
+          title: "css轮播图",
+          url: "/css轮播图/index.html",
+        },
+        {
+          title: "css手风琴",
+          url: "/css手风琴/index.html",
+        },
+        {
+          title: "打字效果",
+          url: "/打字效果/index.html",
+        },
+        {
+          title: "鞭炮倒计时",
+          url: "/鞭炮倒计时/index.html",
+        },
+        {
+          title: "css实现文本不定行数截断",
+          url: "/css实现文本“不定行数”截断/index.html",
+        },
+        {
+          title: "烟花",
+          url: "/烟花/index.html",
+        },
+        {
+          title: "雪花",
+          url: "/雪花/index.html",
+        },
+        {
+          title: "苹果加载进度条",
+          url: "/iphone-loading/index.html",
+        },
+        {
+          title: "音频可视化",
+          url: "/audio-visualization/index.html",
+        },
+      ],
+    }).mount();
+  </script>
 </html>
