@@ -1,13 +1,21 @@
-@-webkit-keyframes typing { from { width: 0; } }
-@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@-webkit-keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
 
-h1 { 
-	font: bold 300% Consolas, Monaco, monospace;
-	border-right: .1em solid black;
-	width: 21ch;
-	margin: 2em 1em;
-	white-space: nowrap;
-	overflow: hidden;
-	-webkit-animation: typing 7s steps(21, end),
-	blink-caret .5s step-end infinite ;
+h1 {
+  font: bold 300% Consolas, Monaco, monospace;
+  border-right: 0.1em solid black;
+  width: 21ch;
+  margin: 2em 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-animation: typing 7s steps(21, end),
+    blink-caret 0.5s step-end infinite;
 }

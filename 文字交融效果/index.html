@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文字交融</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100vw;
+        background: #000000;
+
+        height: 100vh;
+      }
+      .container {
+        margin-top: 32px;
+        text-align: center;
+        filter: contrast(30);
+        background: #000000;
+      }
+      .text {
+        color: white;
+
+        font-size: 100px;
+        animation: showup 3s forwards;
+      }
+      @keyframes showup {
+        from {
+          letter-spacing: -50px;
+          filter: blur(10px);
+        }
+        to {
+          letter-spacing: 10px;
+          filter: blur(2px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text">文字交融 效果实现</div>
+    </div>
+  </body>
+</html>
